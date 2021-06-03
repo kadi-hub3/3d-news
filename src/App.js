@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from "react";
 import Headline from "./HeadLine/Headline";
+import "./App.css";
 
 function App() {
   const [author, setAuthor] = useState("");
   const [title, setTitle] = useState("");
-  const [description, setDescription] = useState([]);
-  const [articlee, setArticle] = useState([]);
+  const [description, setDescription] = useState("");
+  const [articles, setArticles] = useState([]);
 
   const api_key = "58c294635636451aafe0a2a729fb4de8";
   const url = "https://newsapi.org/v2/top-headlines";
@@ -21,9 +22,7 @@ function App() {
       if (response.ok) {
         const jsonResponse = await response.json();
         const articles = jsonResponse.articles;
-        // setAuthor(author);
-        setDescription(articles);
-        console.log(articles);
+        setArticles(articles);
       }
       throw new Error("Request Failed!");
     } catch (error) {
@@ -36,14 +35,15 @@ function App() {
 
   return (
     <main className="App">
-      {description.map((des) => {
+      <h1>Headlines of the month</h1>
+      {articles.map((article) => {
         return (
           <Headline
-            title={des.title}
-            author={des.author}
-            description={des.description}
-            content={des.content}
-            image={des.urlToImage}
+            title={article.title}
+            author={article.author}
+            description={article.description}
+            content={article.content}
+            image={article.urlToImage}
           />
         );
       })}

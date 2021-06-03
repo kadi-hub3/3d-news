@@ -1,5 +1,15 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 main {
-  padding: 2rem 4rem;
-  display: flex;
-  justify-content: center;
+  padding: 1rem 4rem;
+}
+
+h1 {
+  text-align: center;
+  padding: 2rem 0;
+  text-transform: capitalize;
 }
