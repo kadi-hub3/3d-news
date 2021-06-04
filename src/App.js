@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import Headline from "./HeadLine/Headline";
+import TechSidebar from "./TechSidebar/TechSidebar";
 import "./App.css";
+import { fetchArticles } from "./api";
 
 function App() {
   const [author, setAuthor] = useState("");
@@ -8,45 +10,61 @@ function App() {
   const [description, setDescription] = useState("");
   const [articles, setArticles] = useState([]);
 
-  const api_key = "58c294635636451aafe0a2a729fb4de8";
-  const url = "https://newsapi.org/v2/top-headlines";
-
-  const inputUser = "us";
-
-  const fetchArticles = async () => {
-    const countryQuery = "?country=";
-    const endpoint = `${url}${countryQuery}${inputUser}&apiKey=${api_key}`;
-
-    try {
-      const response = await fetch(endpoint);
-      if (response.ok) {
-        const jsonResponse = await response.json();
-        const articles = jsonResponse.articles;
-        setArticles(articles);
-      }
-      throw new Error("Request Failed!");
-    } catch (error) {
-      console.log(error);
-    }
-  };
   useEffect(() => {
-    fetchArticles();
+    const getArticles = async () => {
+      const response = await fetchArticles();
+      setArticles(response);
+    };
+    getArticles();
   }, []);
 
   return (
     <main className="App">
       <h1>Headlines of the month</h1>
-      {articles.map((article) => {
-        return (
-          <Headline
-            title={article.title}
-            author={article.author}
-            description={article.description}
-            content={article.content}
-            image={article.urlToImage}
-          />
-        );
-      })}
+      <div className="sections">
+        <section>
+          {articles.map((article) => {
+            return (
+              <TechSidebar
+                title={article.title}
+                author={article.author}
+                description={article.description}
+                content={article.content}
+                authorImg={article.urlToImage}
+                authorProfession="Reporter"
+              />
+            );
+          })}
+        </section>
+        <section>
+          {articles.map((article) => {
+            return (
+              <Headline
+                title={article.title}
+                author={article.author}
+                description={article.description}
+                content={article.content}
+                image={article.urlToImage}
+                authorImg={article.urlToImage}
+                authorProfession="Reporter"
+              />
+            );
+          })}
+        </section>
+        <section>
+          {articles.map((article) => {
+            return (
+              <Headline
+                title={article.title}
+                author={article.author}
+                description={article.description}
+                content={article.content}
+                image={article.urlToImage}
+              />
+            );
+          })}
+        </section>
+      </div>
     </main>
   );
 }
