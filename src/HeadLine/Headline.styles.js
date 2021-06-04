@@ -2,8 +2,8 @@ import styled from "styled-components";
 
 export const StyledArticle = styled.div`
   .news-article {
-    width: 40vw;
-    padding: 2rem 2rem;
+    width: 30vw;
+    padding: 0rem 2rem;
     display: flex;
     flex-direction: column;
     justify-content: start;
@@ -14,9 +14,10 @@ export const StyledArticle = styled.div`
     border: 1px solid lightgray;
 
     img {
-      width: 37vw;
+      width: 30vw;
       height: 30vh;
       padding-bottom: 1rem;
+      filter: grayscale(100%);
     }
 
     .author {

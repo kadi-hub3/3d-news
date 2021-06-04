@@ -3,13 +3,16 @@ import styled from "styled-components";
 export const StyledSidebar = styled.div`
   div {
     width: 25vw;
-    margin: 1.2rem 1rem;
+    margin: 2rem 1rem;
     padding: 0 0.5rem;
 
     h1 {
       text-align: left;
       line-height: 1.5;
       padding-bottom: 0.5rem;
+      text-decoration: none;
+      font-family: serif;
+      letter-spacing: 0px;
     }
 
     p {
@@ -25,6 +28,7 @@ export const StyledSidebar = styled.div`
         height: 3rem;
         border-radius: 50%;
         margin-right: 0.5rem;
+        filter: grayscale(100%);
       }
 
       div {
