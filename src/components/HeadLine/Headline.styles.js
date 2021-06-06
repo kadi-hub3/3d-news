@@ -11,13 +11,11 @@ export const StyledArticle = styled.div`
     margin: 2rem 1rem;
     line-height: 1.75;
     font-family: serif;
-    border: 1px solid lightgray;
 
     img {
       width: 30vw;
       height: 30vh;
       padding-bottom: 1rem;
-      filter: grayscale(100%);
     }
 
     .author {

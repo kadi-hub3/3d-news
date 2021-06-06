@@ -12,7 +12,6 @@ export const StyledBar = styled.div`
 
     img {
       width: 25vw;
-      filter: grayscale(100%);
 
     }
   }

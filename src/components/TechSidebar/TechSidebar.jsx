@@ -14,7 +14,7 @@ const TechSidebar = ({
         <h1>{title}</h1>
         <p>{description}</p>
         <div className="author">
-          <img src={authorImg} alt="author's image" />
+          <img src={authorImg} alt="author's" />
           <div>
             <h5>{author}</h5>
             <h6>{authorProfession}</h6>

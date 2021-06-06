@@ -18,7 +18,7 @@ const Headline = ({
         <span>{description}</span>
         <p>{content}</p>
         <div className="author">
-          <img src={authorImg} alt="author's photo" />
+          <img src={authorImg} alt="author's" />
           <div>
             <h5>{author}</h5>
             <h6>{authorProfession}</h6>

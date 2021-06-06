@@ -28,7 +28,6 @@ export const StyledSidebar = styled.div`
         height: 3rem;
         border-radius: 50%;
         margin-right: 0.5rem;
-        filter: grayscale(100%);
       }
 
       div {
