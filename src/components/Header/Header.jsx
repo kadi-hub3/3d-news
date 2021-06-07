@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { StyledHeader } from "./Header.styles";
 import { Link } from "react-router-dom";
 import { fetchArticles, getCurrentDate } from "../../api";
+import WeatherIcon from "../Weather/WeatherIcon";
 
 const Title = () => {
   const [date, setDate] = useState("");
@@ -36,7 +37,9 @@ const Title = () => {
           <Link to="/">
             <h1>THE LA TIMES</h1>
           </Link>
-          <h4>current weather</h4>
+          <h4>
+            <WeatherIcon />
+          </h4>
         </div>
 
         <div className="categories">

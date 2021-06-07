@@ -1,26 +1,29 @@
 import styled from "styled-components";
 
 export const StyledArticle = styled.div`
+  display: flex;
+  justify-content: center;
+
   .news-article {
-    width: 30vw;
     padding: 0rem 2rem;
     display: flex;
     flex-direction: column;
-    justify-content: start;
+    justify-content: center;
     align-items: center;
     margin: 2rem 1rem;
     line-height: 1.75;
     font-family: serif;
+    width: 50vw;
 
     img {
-      width: 30vw;
-      height: 30vh;
+      width: 100%;
+      height: 40vh;
       padding-bottom: 1rem;
     }
 
     .author {
       display: flex;
-      justify-content: flex-start;
+      justify-content: start;
       margin: 1rem;
 
       img {

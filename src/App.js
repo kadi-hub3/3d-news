@@ -15,7 +15,7 @@ function App() {
   return (
     <>
       <Header />
-      <Switch>
+      {/* <Switch>
         <Route exact path="/" component={Home} />
         <Route exact path="/health" component={Health} />
         <Route exact path="/tech" component={Tech} />
@@ -24,7 +24,7 @@ function App() {
         <Route exact path="/et" component={ET} />
         <Route exact path="/business" component={Business} />
         <Route exact path="/general" component={General} />
-      </Switch>
+      </Switch> */}
     </>
   );
 }

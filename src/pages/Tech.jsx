@@ -11,7 +11,7 @@ const Tech = () => {
       setArticles(response);
     };
     getArticles();
-  });
+  }, []);
   return (
     <div>
       {articles.map((article, id) => {
