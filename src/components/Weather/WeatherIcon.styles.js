@@ -6,11 +6,7 @@ export const StyledWeather = styled.div`
   }
 
   h4,
-  span {
+  h5 {
     margin: 0 0.4rem;
-  }
-
-  span .min {
-    font-size: 2.5rem;
   }
 `;

@@ -23,7 +23,6 @@ export const StyledHeader = styled.div`
     padding: 2rem 0;
     text-transform: capitalize;
     font-family: "Yeseva One", cursive;
-    text-decoration: underline;
     letter-spacing: 1px;
   }
 
@@ -31,5 +30,9 @@ export const StyledHeader = styled.div`
     display: flex;
     justify-content: space-between;
     align-items: center;
+  }
+
+  .title h1 {
+    font-family: "UnifrakturCook", cursive;
   }
 `;
