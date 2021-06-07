@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import Sidebar from "../components/EntertainmentBar/ETSidebar";
+import Headline from "../components/HeadLine/Headline";
 import { fetchArticles } from "../api";
 
 const Business = () => {
@@ -7,20 +7,24 @@ const Business = () => {
 
   useEffect(() => {
     const getArticles = async () => {
-      const response = await fetchArticles("", "business");
+      const response = await fetchArticles("us", "business");
       setArticles(response);
     };
+    getArticles();
   });
-
   return (
     <div>
       {articles.map((article, id) => {
         return (
           <a href={article.url} target="_blank" rel="noreferrer" key={id}>
-            <Sidebar
+            <Headline
               title={article.title}
               author={article.author}
+              description={article.description}
+              content={article.content}
               image={article.urlToImage}
+              authorImg={article.urlToImage}
+              authorProfession="Reporter"
             />
           </a>
         );

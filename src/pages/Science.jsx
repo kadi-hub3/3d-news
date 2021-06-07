@@ -2,12 +2,12 @@ import React, { useState, useEffect } from "react";
 import Headline from "../components/HeadLine/Headline";
 import { fetchArticles } from "../api";
 
-const Sports = () => {
+const Science = () => {
   const [articles, setArticles] = useState([]);
 
   useEffect(() => {
     const getArticles = async () => {
-      const response = await fetchArticles("us", "sports");
+      const response = await fetchArticles("us", "science");
       setArticles(response);
     };
     getArticles();
@@ -33,4 +33,4 @@ const Sports = () => {
   );
 };
 
-export default Sports;
+export default Science;
