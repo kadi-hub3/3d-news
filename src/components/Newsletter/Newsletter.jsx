@@ -1,26 +1,42 @@
-import React, { useEffect } from "react";
-import { PopupboxManager, PopupboxContainer } from "react-popupbox";
+import React, { useState, useEffect } from "react";
 import { StyledNewsLetter } from "./Newsletter.styles";
+
 const Newsletter = () => {
+  const [clicked, setClicked] = useState(false);
+
   useEffect(() => {
-    const openPopupbox = () => {
-      const content = (
-        <div>
-          <p className="quotes">Work like you don't need the money.</p>
-          <p className="quotes">Dance like no one is watching.</p>
-          <p className="quotes">And love like you've never been hurt.</p>
-          <span className="quotes-from">― Mark Twain</span>
-        </div>
-      );
-      PopupboxManager.open({ content });
-    };
-    openPopupbox();
+    const interval = setTimeout(() => {
+      setClicked(true);
+    }, 10000);
   }, []);
 
+  const toggleClick = () => {
+    setClicked((prev) => !prev);
+  };
+
   return (
-    <div>
-      <PopupboxContainer />
-    </div>
+    <StyledNewsLetter>
+      {clicked && (
+        <div className="modal">
+          <div className="modal-newsletter">
+            <button className="close-btn" onClick={toggleClick}>
+              &times;
+            </button>
+            <h1>Sign up &amp; get 10% off</h1>
+            <label>
+              Subscribe to our newsletters now and stay up-to-date with latest
+              news, books and exclusive offers.
+            </label>
+            <input
+              type="email"
+              name="email"
+              placeholder="Subscribe by email ..."
+            />
+            <button className="submit">subscribe</button>
+          </div>
+        </div>
+      )}
+    </StyledNewsLetter>
   );
 };
 
