@@ -9,12 +9,15 @@ import Science from "./pages/Science";
 import Tech from "./pages/Tech";
 import ET from "./pages/ET";
 import Header from "./components/Header/Header";
+import Newsletter from "./components/Newsletter/Newsletter";
+import Footer from "./components/Footer/Footer";
 import "./App.css";
 
 function App() {
   return (
     <>
       <Header />
+      {/* <Newsletter /> */}
       {/* <Switch>
         <Route exact path="/" component={Home} />
         <Route exact path="/health" component={Health} />
@@ -25,6 +28,7 @@ function App() {
         <Route exact path="/business" component={Business} />
         <Route exact path="/general" component={General} />
       </Switch> */}
+      <Footer />
     </>
   );
 }

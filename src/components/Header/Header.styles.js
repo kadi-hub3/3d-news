@@ -23,7 +23,7 @@ export const StyledHeader = styled.div`
     padding: 2rem 0;
     text-transform: capitalize;
     font-family: "Yeseva One", cursive;
-    letter-spacing: 1px;
+    letter-spacing: 5px;
   }
 
   .title {

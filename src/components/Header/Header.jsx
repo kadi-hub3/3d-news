@@ -3,25 +3,23 @@ import { StyledHeader } from "./Header.styles";
 import { Link } from "react-router-dom";
 import { fetchArticles, getCurrentDate } from "../../api";
 import WeatherIcon from "../Weather/WeatherIcon";
+import SearchBar from "../SearchBar/SearchBar";
 
 const Title = () => {
   const [date, setDate] = useState("");
+  const [query, setQuery] = useState("kim");
+  const [articles, setArticles] = useState([]);
 
   useEffect(() => {
     const getArticles = async () => {
-      const response = await fetchArticles("US", "");
+      const response = await fetchArticles("US", "", query);
       const date = await getCurrentDate();
       setDate(date);
+      setArticles(response);
     };
 
     getArticles();
   }, []);
-
-  const handleClick = (e) => {
-    const input = e.target.id;
-    console.log(input);
-    fetchArticles("us", input);
-  };
 
   return (
     <StyledHeader>
@@ -41,42 +39,28 @@ const Title = () => {
             <WeatherIcon />
           </h4>
         </div>
-
+        <SearchBar />
         <div className="categories">
           <Link to="/business">
-            <button onClick={handleClick} id="business">
-              business
-            </button>
+            <button id="business">business</button>
           </Link>
           <Link to="/et">
-            <button onClick={handleClick} id="entertainment">
-              entertainment
-            </button>
+            <button id="entertainment">entertainment</button>
           </Link>
           <Link to="/general">
-            <button onClick={handleClick} id="general">
-              general
-            </button>
+            <button id="general">general</button>
           </Link>
           <Link to="/health">
-            <button onClick={handleClick} id="health">
-              health
-            </button>
+            <button id="health">health</button>
           </Link>
           <Link to="/science">
-            <button onClick={handleClick} id="sciences">
-              science
-            </button>
+            <button id="sciences">science</button>
           </Link>
           <Link to="/sports">
-            <button onClick={handleClick} id="sports">
-              sports
-            </button>
+            <button id="sports">sports</button>
           </Link>
           <Link to="/tech">
-            <button onClick={handleClick} id="technology">
-              technology
-            </button>
+            <button id="technology">technology</button>
           </Link>
         </div>
       </div>

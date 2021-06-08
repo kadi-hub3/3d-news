@@ -4,7 +4,6 @@ import TechSidebar from "../../components/TechSidebar/TechSidebar";
 import ETSidebar from "../../components/EntertainmentBar/ETSidebar";
 import { fetchArticles } from "../../api";
 import { GlobalStyle } from "./Home.styles";
-
 const Home = () => {
   const [articles, setArticles] = useState([]);
   const [techArticles, setTechArticles] = useState([]);

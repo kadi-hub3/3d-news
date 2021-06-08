@@ -2,22 +2,22 @@ const key = process.env.REACT_APP_API_KEY;
 const url = process.env.REACT_APP_API_URL;
 const weatherKey = process.env.REACT_APP_APIWEATHER_KEY;
 
-export const fetchArticles = async (country, category) => {
-  const countryQuery = "?country=";
-  const categoryQuery = "&category=";
-  const endpoint = `${url}${countryQuery}${country}${categoryQuery}${category}&apiKey=${key}`;
-
-  try {
-    const response = await fetch(endpoint);
-    if (response.ok) {
-      const jsonResponse = await response.json();
-      const articles = jsonResponse.articles;
-      return articles;
-    }
-    throw new Error("Request Failed!");
-  } catch (error) {
-    console.log(error);
-  }
+export const fetchArticles = async (country, category, query) => {
+  // const countryQuery = "&country=";
+  // const categoryQuery = "&category=";
+  // const searchQuery = "?q=";
+  // const endpoint = `${url}${searchQuery}${query}${countryQuery}${country}${categoryQuery}${category}&apiKey=${key}`;
+  // try {
+  //   const response = await fetch(endpoint);
+  //   if (response.ok) {
+  //     const jsonResponse = await response.json();
+  //     const articles = jsonResponse.articles;
+  //     return articles;
+  //   }
+  //   throw new Error("Request Failed!");
+  // } catch (error) {
+  //   console.log(error);
+  // }
 };
 
 export const getCurrentDate = () => {
@@ -63,7 +63,7 @@ export const fetchWeather = async (city) => {
       const main = await jsonResponse.main;
       return [main, weather];
     }
-    throw new Error("Request Failed!");
+    throw new Error("Weather Request Failed!");
   } catch (err) {
     console.log(err);
   }
@@ -79,7 +79,7 @@ export const fetchLocation = async () => {
       console.log(jsonLocation);
       return jsonLocation;
     }
-    throw new Error("Request Failed!");
+    throw new Error("Location Request Failed!");
   } catch (err) {
     console.log(err);
   }
