@@ -17,6 +17,7 @@ function App() {
   return (
     <>
       <Header />
+
       <Newsletter />
       {/* <Switch>
         <Route exact path="/" component={Home} />

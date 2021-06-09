@@ -1,24 +1,20 @@
 import React, { useState, useEffect } from "react";
 import { StyledHeader } from "./Header.styles";
 import { Link } from "react-router-dom";
-import { fetchArticles, getCurrentDate } from "../../api";
+import { getCurrentDate } from "../../api";
 import WeatherIcon from "../Weather/WeatherIcon";
 import SearchBar from "../SearchBar/SearchBar";
 
 const Title = () => {
   const [date, setDate] = useState("");
-  const [query, setQuery] = useState("kim");
-  const [articles, setArticles] = useState([]);
 
   useEffect(() => {
-    const getArticles = async () => {
-      const response = await fetchArticles("US", "", query);
+    const getDate = async () => {
       const date = await getCurrentDate();
       setDate(date);
-      setArticles(response);
     };
 
-    getArticles();
+    getDate();
   }, []);
 
   return (
@@ -27,8 +23,8 @@ const Title = () => {
         <div className="lingo">
           <button>U.S.</button>
           <button>FRANCE</button>
-          <button>ESPAÑOL ar</button>
-          <button>العربية ae</button>
+          <button>ESPAÑA</button>
+          <button>العربية</button>
         </div>
         <div className="title">
           <h4>{date}</h4>

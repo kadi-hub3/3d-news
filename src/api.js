@@ -1,25 +1,41 @@
 const key = process.env.REACT_APP_API_KEY;
 const url = process.env.REACT_APP_API_URL;
-const weatherKey = process.env.REACT_APP_APIWEATHER_KEY;
+const weatherKey = process.env.REACT_APP_API_WEATHER_KEY;
+const ipKey = process.env.REACT_APP_IP_KEY;
 
-export const fetchArticles = async (country, category, query) => {
-  // const countryQuery = "&country=";
-  // const categoryQuery = "&category=";
-  // const searchQuery = "?q=";
-  // const endpoint = `${url}${searchQuery}${query}${countryQuery}${country}${categoryQuery}${category}&apiKey=${key}`;
-  // try {
-  //   const response = await fetch(endpoint);
-  //   if (response.ok) {
-  //     const jsonResponse = await response.json();
-  //     const articles = jsonResponse.articles;
-  //     return articles;
-  //   }
-  //   throw new Error("Request Failed!");
-  // } catch (error) {
-  //   console.log(error);
-  // }
+export const fetchArticles = async (country, category) => {
+  const countryQuery = "?country=";
+  const categoryQuery = "&category=";
+  const endpoint = `${url}${countryQuery}${country}${categoryQuery}${category}&apiKey=${key}`;
+  try {
+    const response = await fetch(endpoint);
+    if (response.ok) {
+      const jsonResponse = await response.json();
+      const articles = jsonResponse.articles;
+      return articles;
+    }
+    throw new Error("Request Failed!");
+  } catch (error) {
+    console.log(error);
+  }
 };
 
+export const fetchSpecificArticles = async (query) => {
+  const endpoint = `${url}?q=${query}&apiKey=${key}`;
+
+  try {
+    const response = await fetch(endpoint);
+    if (response.ok) {
+      const jsonRes = await response.json();
+      const queryArticles = jsonRes.articles;
+      console.log(queryArticles);
+      return queryArticles;
+    }
+    throw new Error("Requested Articles Not Found!");
+  } catch (err) {
+    console.log(err);
+  }
+};
 export const getCurrentDate = () => {
   const dayNames = [
     "Sunday",
@@ -70,14 +86,14 @@ export const fetchWeather = async (city) => {
 };
 
 export const fetchLocation = async () => {
-  const locationURL = `http://ip-api.io/json/`;
+  const locationURL = `https://api.ipgeolocation.io/ipgeo?apiKey=${ipKey}`;
   try {
     const getLocation = await fetch(locationURL);
-    console.log(getLocation);
     if (getLocation.ok) {
       const jsonLocation = await getLocation.json();
-      console.log(jsonLocation);
-      return jsonLocation;
+      const city = await jsonLocation.city;
+      console.log(city);
+      return city;
     }
     throw new Error("Location Request Failed!");
   } catch (err) {

@@ -1,19 +1,20 @@
 import React, { useState, useEffect } from "react";
+import Headline from "../HeadLine/Headline";
 import { StyledBar } from "./SearchBar.styles";
-import { fetchArticles } from "../../api";
+import { fetchSpecificArticles } from "../../api";
 import { FaSearch } from "react-icons/fa";
 
 const SearchBar = () => {
-  const [post, setPost] = useState([]);
+  const [articles, setArticles] = useState([]);
   const [query, setQuery] = useState("kim");
 
-  //   useEffect(() => {
-  //     const getData = async () => {
-  //       const response = await fetchArticles("us", "general", query);
-  //       setPost(response);
-  //     };
-  //     getData();
-  //   });
+  // useEffect(() => {
+  //   const getData = async () => {
+  //     const response = await fetchSpecificArticles(query);
+  //     setArticles(response);
+  //   };
+  //   getData();
+  // }, [query]);
 
   const handleChange = (e) => {
     setQuery(e.target.value);
@@ -21,29 +22,35 @@ const SearchBar = () => {
 
   return (
     <StyledBar>
-      <div className="container">
+      <div>
         <div className="search-outer">
           <form role="search" method="get" className="searchform">
             <input
               type="search"
               onChange={handleChange}
-              placeholder="Search ..."
+              placeholder="Type any keyword"
             />
             <button type="submit">
               <FaSearch />
             </button>
           </form>
         </div>
-        <ul className="data-list">
-          {/* post items mapped in a list linked to onKeyUp function */}
-          {/* {post.map((item, index) => (
-            <li className={"block-" + index}>
-              <a className="title" href={item.url}>
-                <h3>{item.title}</h3>
+        <ul className="articles-fetched">
+          {articles.map((article, id) => {
+            return (
+              <a href={article.url} target="_blank" rel="noreferrer" key={id}>
+                <Headline
+                  title={article.title}
+                  author={article.author}
+                  description={article.description}
+                  content={article.content}
+                  image={article.urlToImage}
+                  authorImg={article.urlToImage}
+                  authorProfession="Reporter"
+                />
               </a>
-              <a className="url" href={item.url}></a>
-            </li>
-          ))} */}
+            );
+          })}
         </ul>
       </div>
     </StyledBar>

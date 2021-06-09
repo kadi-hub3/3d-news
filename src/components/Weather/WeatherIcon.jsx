@@ -3,18 +3,24 @@ import { fetchWeather, fetchLocation } from "../../api";
 import { StyledWeather } from "./WeatherIcon.styles";
 
 const WeatherIcon = () => {
-  const [weather, setWeather] = useState([]);
   const [city, setCity] = useState("london");
   const [icon, setIcon] = useState("");
   const [temp, setTemp] = useState("");
   const [minTemp, setMinTemp] = useState("");
   const [maxTemp, setMaxTemp] = useState("");
-  const [location, setLocation] = useState({});
+
+  useEffect(() => {
+    const getCurrentLocation = async () => {
+      const city = await fetchLocation();
+      setCity(city);
+      console.log(city);
+    };
+    getCurrentLocation();
+  }, []);
 
   useEffect(() => {
     const getWeather = async () => {
       const response = await fetchWeather(city);
-      setWeather(response);
       setTemp(response[0].temp);
       setMinTemp(response[0].temp_min);
       setMaxTemp(response[0].temp_max);
@@ -22,15 +28,6 @@ const WeatherIcon = () => {
     };
     getWeather();
   }, [city]);
-
-  useEffect(() => {
-    const getCurrentLocation = async () => {
-      const locationn = await fetchLocation();
-      setLocation(locationn);
-      console.log(locationn);
-    };
-    getCurrentLocation();
-  }, []);
 
   const iconapi = `http://openweathermap.org/img/w/${icon}.png`;
   return (
