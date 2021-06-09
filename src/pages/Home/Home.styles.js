@@ -7,7 +7,7 @@ main {
   }
 
 .news-article{
-    width: 30vw;
+    height: 100%;
 }
 .sections {
     display: flex;

@@ -3,17 +3,18 @@ import Headline from "../../components/EntertainmentBar/ETSidebar";
 import TechSidebar from "../../components/TechSidebar/TechSidebar";
 import ETSidebar from "../../components/EntertainmentBar/ETSidebar";
 import { fetchArticles } from "../../api";
-import { GlobalStyle } from "./Home.styles";
-const Home = () => {
+import { GlobalStyle } from "../Home/Home.styles";
+
+const HomeFR = () => {
   const [articles, setArticles] = useState([]);
   const [techArticles, setTechArticles] = useState([]);
   const [etArticles, setETArticles] = useState([]);
 
   useEffect(() => {
     const getArticles = async () => {
-      const response = await fetchArticles("US", "general");
-      const techResponse = await fetchArticles("us", "technology");
-      const etResponse = await fetchArticles("us", "entertainment");
+      const response = await fetchArticles("ar", "general");
+      const techResponse = await fetchArticles("ar", "technology");
+      const etResponse = await fetchArticles("ar", "entertainment");
       setArticles(response);
       setTechArticles(techResponse);
       setETArticles(etResponse);
@@ -35,6 +36,7 @@ const Home = () => {
                     title={article.title}
                     author={article.author}
                     description={article.description}
+                    content={article.content}
                     authorImg={article.urlToImage}
                     authorProfession="Reporter"
                   />
@@ -78,4 +80,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default HomeFR;

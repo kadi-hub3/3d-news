@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { StyledHeader } from "./Header.styles";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import { getCurrentDate } from "../../api";
 import WeatherIcon from "../Weather/WeatherIcon";
 import SearchBar from "../SearchBar/SearchBar";
@@ -21,43 +21,51 @@ const Title = () => {
     <StyledHeader>
       <div className="header">
         <div className="lingo">
-          <button>U.S.</button>
-          <button>FRANCE</button>
-          <button>ESPAÑA</button>
-          <button>العربية</button>
+          <NavLink to="/3d-news/" activeClassName="active">
+            U.S.
+          </NavLink>
+          <NavLink to="/3d-news/france" activeClassName="active">
+            FRANCE
+          </NavLink>
+          <NavLink to="/3d-news/spain" activeClassName="active">
+            ESPAÑA
+          </NavLink>
+          <NavLink to="/3d-news/ae" activeClassName="active">
+            العربية
+          </NavLink>
         </div>
         <div className="title">
           <h4>{date}</h4>
-          <Link to="/">
+          <NavLink to="/3d-news">
             <h1>THE LA TIMES</h1>
-          </Link>
+          </NavLink>
           <h4>
             <WeatherIcon />
           </h4>
         </div>
         <SearchBar />
         <div className="categories">
-          <Link to="/business">
-            <button id="business">business</button>
-          </Link>
-          <Link to="/et">
-            <button id="entertainment">entertainment</button>
-          </Link>
-          <Link to="/general">
-            <button id="general">general</button>
-          </Link>
-          <Link to="/health">
-            <button id="health">health</button>
-          </Link>
-          <Link to="/science">
-            <button id="sciences">science</button>
-          </Link>
-          <Link to="/sports">
-            <button id="sports">sports</button>
-          </Link>
-          <Link to="/tech">
-            <button id="technology">technology</button>
-          </Link>
+          <NavLink to="/3d-news/business" activeClassName="active">
+            business
+          </NavLink>
+          <NavLink to="/3d-news/et" activeClassName="active">
+            entertainment
+          </NavLink>
+          <NavLink to="/3d-news/general" activeClassName="active">
+            general
+          </NavLink>
+          <NavLink to="/3d-news/health" activeClassName="active">
+            health
+          </NavLink>
+          <NavLink to="/3d-news/science" activeClassName="active">
+            science
+          </NavLink>
+          <NavLink to="/3d-news/sports" activeClassName="active">
+            sports
+          </NavLink>
+          <NavLink to="/3d-news/tech" activeClassName="active">
+            technology
+          </NavLink>
         </div>
       </div>
     </StyledHeader>

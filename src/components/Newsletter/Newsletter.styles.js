@@ -20,6 +20,7 @@ export const StyledNewsLetter = styled.div`
       justify-content: center;
       align-items: center;
       position: relative;
+      padding: 0 2rem;
 
       h1 {
         text-transform: uppercase;

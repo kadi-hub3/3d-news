@@ -10,8 +10,16 @@ export const StyledHeader = styled.div`
     align-items: center;
   }
 
-  .categories button,
-  .lingo button {
+  .lingo {
+    font-family: serif;
+  }
+
+  .categories {
+    font-family: Georgia, "Times New Roman", Times, serif;
+    font-size: 0.9rem;
+  }
+
+  a {
     padding: 0.5rem 1rem;
     text-transform: uppercase;
     border: none;
@@ -34,5 +42,8 @@ export const StyledHeader = styled.div`
 
   .title h1 {
     font-family: "UnifrakturCook", cursive;
+  }
+  .active {
+    font-weight: bolder;
   }
 `;

@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { Route, Switch } from "react-router-dom";
 import Home from "./pages/Home/Home";
+import HomeFR from "./pages/HomeFR/HomeFR";
+import HomeES from "./pages/HomeES/HomeES";
+import HomeAR from "./pages/HomeAR/HomeAR";
 import Health from "./pages/Health";
 import General from "./pages/General";
 import Business from "./pages/Business";
@@ -17,18 +20,20 @@ function App() {
   return (
     <>
       <Header />
-
       <Newsletter />
-      {/* <Switch>
-        <Route exact path="/" component={Home} />
-        <Route exact path="/health" component={Health} />
-        <Route exact path="/tech" component={Tech} />
-        <Route exact path="/science" component={Science} />
-        <Route exact path="/sports" component={Sports} />
-        <Route exact path="/et" component={ET} />
-        <Route exact path="/business" component={Business} />
-        <Route exact path="/general" component={General} />
-      </Switch> */}
+      <Switch>
+        <Route exact path="/3d-news/" component={Home} />
+        <Route exact path="/3d-news/france" component={HomeFR} />
+        <Route exact path="/3d-news/spain" component={HomeES} />
+        <Route exact path="/3d-news/ae" component={HomeAR} />
+        <Route exact path="/3d-news/health" component={Health} />
+        <Route exact path="/3d-news/tech" component={Tech} />
+        <Route exact path="/3d-news/science" component={Science} />
+        <Route exact path="/3d-news/sports" component={Sports} />
+        <Route exact path="/3d-news/et" component={ET} />
+        <Route exact path="/3d-news/business" component={Business} />
+        <Route exact path="/3d-news/general" component={General} />
+      </Switch>
       <Footer />
     </>
   );

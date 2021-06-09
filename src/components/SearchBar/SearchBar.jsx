@@ -6,7 +6,7 @@ import { FaSearch } from "react-icons/fa";
 
 const SearchBar = () => {
   const [articles, setArticles] = useState([]);
-  const [query, setQuery] = useState("kim");
+  const [query, setQuery] = useState("");
 
   // useEffect(() => {
   //   const getData = async () => {
