@@ -8,13 +8,13 @@ const SearchBar = () => {
   const [articles, setArticles] = useState([]);
   const [query, setQuery] = useState("");
 
-  // useEffect(() => {
-  //   const getData = async () => {
-  //     const response = await fetchSpecificArticles(query);
-  //     setArticles(response);
-  //   };
-  //   getData();
-  // }, [query]);
+  useEffect(() => {
+    const getData = async () => {
+      const response = await fetchSpecificArticles(query);
+      setArticles(response);
+    };
+    getData();
+  }, [query]);
 
   const handleChange = (e) => {
     setQuery(e.target.value);
@@ -36,21 +36,22 @@ const SearchBar = () => {
           </form>
         </div>
         <ul className="articles-fetched">
-          {articles.map((article, id) => {
-            return (
-              <a href={article.url} target="_blank" rel="noreferrer" key={id}>
-                <Headline
-                  title={article.title}
-                  author={article.author}
-                  description={article.description}
-                  content={article.content}
-                  image={article.urlToImage}
-                  authorImg={article.urlToImage}
-                  authorProfession="Reporter"
-                />
-              </a>
-            );
-          })}
+          {articles &&
+            articles.map((article, id) => {
+              return (
+                <a href={article.url} target="_blank" rel="noreferrer" key={id}>
+                  <Headline
+                    title={article.title}
+                    author={article.author}
+                    description={article.description}
+                    content={article.content}
+                    image={article.urlToImage}
+                    authorImg={article.urlToImage}
+                    authorProfession="Reporter"
+                  />
+                </a>
+              );
+            })}
         </ul>
       </div>
     </StyledBar>
