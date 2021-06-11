@@ -22,7 +22,6 @@ export const fetchArticles = async (country, category) => {
 
 export const fetchSpecificArticles = async (query) => {
   const endpoint = `${url}?q=${query}&apiKey=${key}`;
-
   try {
     const response = await fetch(endpoint);
     if (response.ok) {
@@ -70,7 +69,7 @@ export const getCurrentDate = () => {
 };
 
 export const fetchWeather = async (city) => {
-  const endpointW = `http://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${weatherKey}`;
+  const endpointW = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${weatherKey}`;
   try {
     const response = await fetch(endpointW);
     if (response.ok) {

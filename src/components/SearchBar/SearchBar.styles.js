@@ -13,6 +13,9 @@ export const StyledBar = styled.div`
     display: flex;
     justify-content: flex-end;
   }
+  p {
+    font-family: Georgia, "Times New Roman", Times, serif;
+  }
 
   input,
   button {

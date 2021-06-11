@@ -23,7 +23,7 @@ function App() {
       <Newsletter />
       <Switch>
         <Route exact path="/3d-news/" component={Home} />
-        <Route exact path="/3d-news/france" component={HomeFR} />
+        {/* <Route exact path="/3d-news/france" component={HomeFR} />
         <Route exact path="/3d-news/spain" component={HomeES} />
         <Route exact path="/3d-news/ae" component={HomeAR} />
         <Route exact path="/3d-news/health" component={Health} />
@@ -32,7 +32,7 @@ function App() {
         <Route exact path="/3d-news/sports" component={Sports} />
         <Route exact path="/3d-news/et" component={ET} />
         <Route exact path="/3d-news/business" component={Business} />
-        <Route exact path="/3d-news/general" component={General} />
+        <Route exact path="/3d-news/general" component={General} /> */}
       </Switch>
       <Footer />
     </>
