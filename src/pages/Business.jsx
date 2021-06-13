@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from "react";
 import Headline from "../components/HeadLine/Headline";
-import { fetchArticles } from "../api";
+import { fetchGoogleNews } from "../api";
 
 const Business = () => {
   const [articles, setArticles] = useState([]);
 
   useEffect(() => {
     const getArticles = async () => {
-      const response = await fetchArticles("us", "business");
+      const response = await fetchGoogleNews();
       setArticles(response);
     };
     getArticles();
@@ -21,7 +21,7 @@ const Business = () => {
               title={article.title}
               author={article.author}
               description={article.description}
-              content={article.content}
+              content={article.summary}
               image={article.urlToImage}
               authorImg={article.urlToImage}
               authorProfession="Reporter"

@@ -99,3 +99,26 @@ export const fetchLocation = async () => {
     console.log(err);
   }
 };
+
+export const fetchGoogleNews = async () => {
+  try {
+    const response = await fetch(
+      "https://free-news.p.rapidapi.com/v1/search?q=business&lang=en",
+      {
+        method: "GET",
+        headers: {
+          "x-rapidapi-key":
+            "0a3b779783msh7ac2b07dd9bcb5ap1897f3jsnf7f8e0fdeba4",
+          "x-rapidapi-host": "free-news.p.rapidapi.com",
+        },
+      }
+    );
+    if (response.ok) {
+      const jsonResponse = await response.json();
+      console.log(jsonResponse);
+      return jsonResponse.articles;
+    }
+  } catch (err) {
+    console.log(err);
+  }
+};
