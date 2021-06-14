@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from "react";
 import Headline from "../components/HeadLine/Headline";
-import { fetchGoogleNews } from "../api";
+import { fetchArticles } from "../api";
 
 const Business = () => {
   const [articles, setArticles] = useState([]);
 
   useEffect(() => {
     const getArticles = async () => {
-      const response = await fetchGoogleNews();
+      const response = await fetchArticles("us", "business");
       setArticles(response);
     };
     getArticles();
